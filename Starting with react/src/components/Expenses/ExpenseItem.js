@@ -4,7 +4,8 @@ import ExpenseDetails from "./ExpenseDetails";
 import Card from "../UI/Card";
 const ExpenseItem = (props) => {
   const deleteHandler = (event) => {
-    console.log("deleted");
+    //console.log(event.target.parentElement.innerHTML);
+    event.target.parentElement.remove();
   };
   return (
     <Card className="expense-item">
