@@ -1,5 +1,6 @@
 import ExpenseItem from "./components/Expenses/ExpenseItem";
 import NewExpense from "./components/NewExpenses/NewExpense";
+
 const App = () => {
   const expenses = [
     {
@@ -7,33 +8,34 @@ const App = () => {
       title: "Toilet Paper",
       amount: 94.12,
       date: new Date(2020, 7, 14),
-      location: "Mumbai",
     },
     {
       id: "e2",
       title: "New TV",
       amount: 799.49,
       date: new Date(2021, 2, 12),
-      location: "Mumbai",
     },
     {
       id: "e3",
       title: "Car Insurance",
       amount: 294.67,
       date: new Date(2021, 2, 28),
-      location: "Mumbai",
     },
     {
       id: "e4",
       title: "New Desk (Wooden)",
       amount: 450,
       date: new Date(2021, 5, 12),
-      location: "Mumbai",
     },
   ];
+
+  const addExpenseHandler = (expense) => {
+    console.log(expenses);
+    expenses.push(expense);
+  };
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       {expenses.map((exp) => {
         return (
           <ExpenseItem
