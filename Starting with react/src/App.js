@@ -3,11 +3,11 @@ import React from "react";
 import { useState } from "react";
 
 // Component Imports
-import ExpenseItem from "./components/Expenses/ExpenseItem";
+import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpenses/NewExpense";
-import ExpenseFilter from "./components/Expenses/ExpenseFilter";
-
-import Card from "./components/UI/Card";
+// import ExpenseFilter from "./components/Expenses/ExpenseFilter";
+// import ExpenseItem from "./components/Expenses/ExpenseItem";
+// import Card from "./components/UI/Card";
 
 const DUMMY_EXPENSES = [
   {
@@ -37,26 +37,27 @@ const DUMMY_EXPENSES = [
 ];
 
 const App = () => {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  // const [filteredYear, setFilteredYear] = useState("2020");
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
-
+  //console.log(expenses);
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
       return [expense, ...prevExpenses];
     });
   };
 
-  const filterChangeHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
+  // const filterChangeHandler = (selectedYear) => {
+  //   setFilteredYear(selectedYear);
+  // };
 
-  const filteredExpenses = expenses.filter((expense) => {
-    return expense.date.getFullYear().toString() === filteredYear;
-  });
+  // const filteredExpenses = expenses.filter((expense) => {
+  //   return expense.date.getFullYear().toString() === filteredYear;
+  // });
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Card className="expenses">
+      <Expenses items={expenses} />
+      {/* <Card className="expenses">
         <ExpenseFilter selected={filteredYear} onChange={filterChangeHandler} />
         {filteredExpenses.map((e) => {
           return (
@@ -68,7 +69,7 @@ const App = () => {
             />
           );
         })}
-      </Card>
+      </Card> */}
     </div>
   );
 };
