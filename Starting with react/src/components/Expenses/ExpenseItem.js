@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+// JS Imports
+import ExpenseDate from './ExpenseDate';
+import ExpenseDetails from './ExpenseDetails';
+import Card from '../UI/Card';
 
-import "./ExpenseItem.css";
-import ExpenseDate from "./ExpenseDate";
-import ExpenseDetails from "./ExpenseDetails";
-import Card from "../UI/Card";
-const ExpenseItem = (props) => {
-  return (
-    <Card className="expense-item">
-      <ExpenseDate date={props.date}></ExpenseDate>
-      <ExpenseDetails title={title} amount={expense}></ExpenseDetails>
-    </Card>
-  );
-};
+// CSS Imports
+import './ExpenseItem.css';
+
+const ExpenseItem = props => {
+
+    return (
+        <Card className='expense-item'>
+            <ExpenseDate date={ props.date } />
+            <ExpenseDetails expense={ props } />
+        </Card>
+    );
+}
 
 export default ExpenseItem;

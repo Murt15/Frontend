@@ -25,6 +25,13 @@
   color: white;
 }
 
+.expense-item__location {
+  font-size: 1rem;
+  flex: 5;
+  margin: 0 1rem;
+  color: white;
+}
+
 .expense-item__price {
   font-size: 1rem;
   font-weight: bold;
