@@ -5,7 +5,7 @@ const ExpensesList = (props) => {
     return <h2 className="expenses-list__fallback">Found No Expenses</h2>;
   }
   if (props.items.length === 1) {
-    console.log(props);
+    //console.log(props);
     return (
       <div>
         <ExpenseItem
