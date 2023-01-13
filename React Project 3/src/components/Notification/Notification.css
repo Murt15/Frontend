@@ -1,0 +1,20 @@
+.error-div {
+  margin-left: auto;
+  margin-right: auto;
+  height: 250px;
+  width: 400px;
+  background-color: cornsilk;
+  border-radius: 10px;
+  border: 2px solid brown;
+}
+.error-div h1 {
+  text-align: center;
+}
+.error-div p {
+  text-align: center;
+}
+.error-div button {
+  height: 25px;
+  width: 60px;
+  align-items: center;
+}

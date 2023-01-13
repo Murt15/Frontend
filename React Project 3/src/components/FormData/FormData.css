@@ -1,0 +1,23 @@
+.data-div {
+  margin-top: 10px;
+  width: 700px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: bisque;
+  border: 0.5px solid rgb(39, 38, 38);
+  border-radius: 10px;
+}
+
+.input-div {
+  margin: 30px;
+  width: 650px;
+  height: auto;
+  border: 0.5px solid black;
+  border-radius: 5px;
+}
+
+.input-label {
+  font-size: 140%;
+  margin: 35px;
+}
