@@ -35,7 +35,7 @@ const Form = (props) => {
     setError(null);
   };
   return (
-    <div>
+    <>
       {error && <Notification msg={error.msg} onConfirm={errorHandler} />}
       {/* <Notification msg={"Error"} /> */}
       <div className="user-form">
@@ -65,7 +65,7 @@ const Form = (props) => {
           </form>
         </fieldset>
       </div>
-    </div>
+    </>
   );
 };
 export default Form;

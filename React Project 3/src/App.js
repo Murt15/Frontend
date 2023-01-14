@@ -18,10 +18,10 @@ function App() {
     });
   };
   return (
-    <div>
+    <>
       <Form onSaveData={addFormData} />
       <FormData data={formData} />
-    </div>
+    </>
   );
 }
 
