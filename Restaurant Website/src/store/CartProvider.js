@@ -8,22 +8,32 @@ const CartProvider = (props) => {
     const existingId = cartContext.items.findIndex(
       (cartItem) => cartItem.id === item.id
     );
-    if (!existingId) {
+    //console.log(existingId);
+    if (existingId >= 0) {
       const updatedItem = {
         ...item,
-        quantity: Number(item.quantity) + 1,
+        quantity:
+          Number(item.quantity) +
+          Number(cartContext.items[existingId].quantity),
       };
-
+      //console.log(updatedItem);
       const updatedItems = [...cartContext.items];
+
       updatedItems[existingId] = updatedItem;
+
       setUpdatedItems(updatedItems);
+
       const updatedAmount = cartContext.totalAmount + item.price;
+
       setUpdatedPrice(updatedAmount);
     } else {
       setUpdatedItems([item, ...items]);
+
       let updatedPrice = price + item.quantity * item.price;
+
       setUpdatedPrice(updatedPrice);
     }
+    //console.log(cartContext.items);
   };
   const removeItemFromCartHandler = (id) => {
     const existingId = cartContext.items.findIndex((item) => item.id === id);
@@ -36,6 +46,7 @@ const CartProvider = (props) => {
 
     if (existingItem.quantity === 1) {
       const updatedItems = cartContext.items.filter((item) => item.id !== id);
+
       setUpdatedItems(updatedItems);
     } else {
       const updatedItem = {
@@ -44,7 +55,9 @@ const CartProvider = (props) => {
       };
 
       const updatedItems = [...cartContext.items];
+
       updatedItems[existingId] = updatedItem;
+
       setUpdatedItems(updatedItems);
     }
   };
