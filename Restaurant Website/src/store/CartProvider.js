@@ -5,11 +5,49 @@ const CartProvider = (props) => {
   const [items, setUpdatedItems] = useState([]);
   const [price, setUpdatedPrice] = useState(0);
   const addItemtoCartHandler = (item) => {
-    setUpdatedItems([...items, item]);
-    let updatedPrice = price + item.quantity * item.price;
-    setUpdatedPrice(updatedPrice);
+    const existingId = cartContext.items.findIndex(
+      (cartItem) => cartItem.id === item.id
+    );
+    if (!existingId) {
+      const updatedItem = {
+        ...item,
+        quantity: Number(item.quantity) + 1,
+      };
+
+      const updatedItems = [...cartContext.items];
+      updatedItems[existingId] = updatedItem;
+      setUpdatedItems(updatedItems);
+      const updatedAmount = cartContext.totalAmount + item.price;
+      setUpdatedPrice(updatedAmount);
+    } else {
+      setUpdatedItems([item, ...items]);
+      let updatedPrice = price + item.quantity * item.price;
+      setUpdatedPrice(updatedPrice);
+    }
   };
-  const removeItemFromCartHandler = (id) => {};
+  const removeItemFromCartHandler = (id) => {
+    const existingId = cartContext.items.findIndex((item) => item.id === id);
+
+    const existingItem = cartContext.items[existingId];
+
+    const updatedAmount = price - existingItem.price;
+
+    setUpdatedPrice(updatedAmount);
+
+    if (existingItem.quantity === 1) {
+      const updatedItems = cartContext.items.filter((item) => item.id !== id);
+      setUpdatedItems(updatedItems);
+    } else {
+      const updatedItem = {
+        ...existingItem,
+        quantity: existingItem.quantity - 1,
+      };
+
+      const updatedItems = [...cartContext.items];
+      updatedItems[existingId] = updatedItem;
+      setUpdatedItems(updatedItems);
+    }
+  };
   const cartContext = {
     items: items,
     totalAmount: price,
