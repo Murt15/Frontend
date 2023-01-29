@@ -2,8 +2,9 @@ import Container from "react-bootstrap/Container";
 import NavBar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "./Header";
+import Button from "react-bootstrap/Button";
 
-const NavigationBar = () => {
+const NavigationBar = (props) => {
   return (
     <>
       <NavBar bg="dark" variant="dark" fixed="top">
@@ -20,7 +21,15 @@ const NavigationBar = () => {
             </Nav.Link>
           </Nav>
         </Container>
+        <Button
+          variant="outline-light"
+          style={{ marginRight: "10px" }}
+          onClick={props.onShowCart}
+        >
+          Cart
+        </Button>
       </NavBar>
+
       <Header />
     </>
   );
