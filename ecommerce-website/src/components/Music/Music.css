@@ -1,0 +1,17 @@
+.music-div {
+  width: 60%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.music-div-card {
+  width: 40%;
+  margin: 20px;
+}
+
+.music-div-component {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
