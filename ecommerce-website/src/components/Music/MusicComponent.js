@@ -1,11 +1,17 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "./Music.css";
+import CartContext from "../../store/cart-context";
+import { useContext } from "react";
 const MusicComponent = (props) => {
+  const cartCtx = useContext(CartContext);
+  const addItemtoCartHandler = (item) => {
+    cartCtx.addItem({ ...item, quantity: 1 });
+  };
   return (
     <div className="music-div-component">
       {props.items.map((music) => (
-        <Card className="music-div-card">
+        <Card className="music-div-card" key={music.id}>
           <Card.Title>{music.title}</Card.Title>
           <Card.Img src={music.imageUrl} />
           <div>
@@ -13,7 +19,13 @@ const MusicComponent = (props) => {
               <Card.Text style={{ fontSize: "130%" }}>{music.price}</Card.Text>
             </span>
             <span>
-              <Button variant="primary" className="justify-content-end">
+              <Button
+                variant="primary"
+                className="justify-content-end"
+                onClick={() => {
+                  addItemtoCartHandler(music);
+                }}
+              >
                 Add to Cart
               </Button>
             </span>

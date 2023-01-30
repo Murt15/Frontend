@@ -49,7 +49,7 @@
 .cart-details-li {
   list-style: none;
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .cart-details-title {
   font-weight: bold;
@@ -69,4 +69,23 @@
   margin-top: 20px;
   margin-left: 50px;
   height: 20px;
+}
+
+.cart-details-li img {
+  width: 70px;
+  height: 70px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+.cart-details-li-title {
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 40px;
+  width: 40px;
+}
+.cart-details-li-price {
+  margin-right: 130px;
+}
+.btn {
+  height: 40px;
 }

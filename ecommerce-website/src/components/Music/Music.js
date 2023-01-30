@@ -2,6 +2,7 @@ import "./Music.css";
 import MusicComponent from "./MusicComponent";
 const productsArr = [
   {
+    id: "m1",
     title: "Colors",
 
     price: 100,
@@ -10,6 +11,7 @@ const productsArr = [
   },
 
   {
+    id: "m2",
     title: "Black and white Colors",
 
     price: 50,
@@ -18,6 +20,7 @@ const productsArr = [
   },
 
   {
+    id: "m3",
     title: "Yellow and Black Colors",
 
     price: 70,
@@ -26,6 +29,7 @@ const productsArr = [
   },
 
   {
+    id: "m4",
     title: "Blue Color",
 
     price: 100,

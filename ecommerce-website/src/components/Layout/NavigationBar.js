@@ -3,8 +3,16 @@ import NavBar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Header from "./Header";
 import Button from "react-bootstrap/Button";
+import CartContext from "../../store/cart-context";
+import { useContext } from "react";
 
 const NavigationBar = (props) => {
+  const cartCtx = useContext(CartContext);
+  let numberofCartItems = 0;
+
+  cartCtx.items.forEach((item) => {
+    numberofCartItems = numberofCartItems + Number(item.quantity);
+  });
   return (
     <>
       <NavBar bg="dark" variant="dark" fixed="top">
@@ -26,7 +34,7 @@ const NavigationBar = (props) => {
           style={{ marginRight: "10px" }}
           onClick={props.onShowCart}
         >
-          Cart
+          Cart {numberofCartItems}
         </Button>
       </NavBar>
 
