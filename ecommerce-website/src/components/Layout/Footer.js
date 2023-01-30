@@ -4,7 +4,12 @@ import Nav from "react-bootstrap/Nav";
 
 const Footer = () => {
   return (
-    <NavBar bg="primary" variant="dark" fixed="bottom">
+    <NavBar
+      bg="primary"
+      variant="dark"
+      fixed="bottom"
+      style={{ height: "80px" }}
+    >
       <Container className="justify-content-center">
         <NavBar.Brand style={{ fontSize: "200%" }} className="me-5">
           The Generics

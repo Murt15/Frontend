@@ -5,6 +5,7 @@ import Header from "./Header";
 import Button from "react-bootstrap/Button";
 import CartContext from "../../store/cart-context";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const cartCtx = useContext(CartContext);
@@ -18,15 +19,15 @@ const NavigationBar = (props) => {
       <NavBar bg="dark" variant="dark" fixed="top">
         <Container className="justify-content-center ">
           <Nav style={{ fontSize: "120%" }}>
-            <Nav.Link href="" className="me-5">
+            <Link to="/home" className="me-5">
               Home
-            </Nav.Link>
-            <Nav.Link href="" className="me-5">
+            </Link>
+            <Link to="/" className="me-5">
               Store
-            </Nav.Link>
-            <Nav.Link href="" className="me-5">
+            </Link>
+            <Link to="/aboutus" className="me-5">
               About
-            </Nav.Link>
+            </Link>
           </Nav>
         </Container>
         <Button

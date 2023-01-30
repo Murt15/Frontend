@@ -1,27 +1,16 @@
-import { useState } from "react";
-import NavigationBar from "./components/Layout/NavigationBar";
-import Footer from "./components/Layout/Footer";
-import Music from "./components/Music/Music";
-import Cart from "./components/Cart/Cart";
-import CartProvider from "./store/CartProvider";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AboutUs from "./pages/AboutUs";
+import Home from "./pages/Home";
+import Store from "./pages/Store";
+
+const router = createBrowserRouter([
+  { path: "/aboutus", element: <AboutUs /> },
+  { path: "/home", element: <Home /> },
+  { path: "/", element: <Store /> },
+]);
 
 const App = () => {
-  const [showCart, setShowCart] = useState(false);
-
-  const showCartHandler = () => {
-    setShowCart(true);
-  };
-  const HideCartHandler = () => {
-    setShowCart(false);
-  };
-  return (
-    <CartProvider>
-      {showCart && <Cart onClose={HideCartHandler} />}
-      <NavigationBar onShowCart={showCartHandler} />
-      <Music />
-      <Footer />
-    </CartProvider>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
