@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
-
 import MoviesList from "./components/MoviesList";
 import AddMovie from "./components/AddMovie";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -13,19 +13,22 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://swapi.dev/api/films/");
-      if (!response.ok) {
-        throw new Error("Something went wrong!");
-      }
+      const response = await axios.get(
+        "https://crudcrud.com/api/c223747681fe49649ab615cd23fff9b4/movies"
+      );
+      console.log(response);
+      // if (!response.ok) {
+      //   throw new Error("Something went wrong!");
+      // }
 
-      const data = await response.json();
+      //const data = await response.json();
 
-      const transformedMovies = data.results.map((movieData) => {
+      const transformedMovies = response.data.map((movieData) => {
         return {
-          id: movieData.episode_id,
+          id: movieData._id,
           title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
+          openingText: movieData.openingText,
+          releaseDate: movieData.releaseDate,
         };
       });
       setMovies(transformedMovies);
@@ -39,14 +42,25 @@ function App() {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  function addMovieHandler(movie) {
+  async function deleteMovieHandler(id) {
+    const res = await axios.delete(
+      `https://crudcrud.com/api/c223747681fe49649ab615cd23fff9b4/movies/${id}`
+    );
+    console.log(res);
+  }
+  async function addMovieHandler(movie) {
     console.log(movie);
+    const response = await axios.post(
+      "https://crudcrud.com/api/c223747681fe49649ab615cd23fff9b4/movies",
+      movie
+    );
+    console.log(response);
   }
 
   let content = <p>Found no movies.</p>;
 
   if (movies.length > 0) {
-    content = <MoviesList movies={movies} />;
+    content = <MoviesList movies={movies} onDelete={deleteMovieHandler} />;
   }
 
   if (error) {
