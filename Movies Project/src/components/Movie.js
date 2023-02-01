@@ -12,6 +12,7 @@ const Movie = (props) => {
         onClick={() => {
           props.onDelete(props._id);
         }}
+        style={{ backgroundColor: "brown" }}
       >
         Delete Movie
       </button>
