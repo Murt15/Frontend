@@ -28,6 +28,9 @@ const NavigationBar = (props) => {
             <Link to="/aboutus" className="me-5">
               About
             </Link>
+            <Link to="/contactus" className="me-5">
+              Contact Us
+            </Link>
           </Nav>
         </Container>
         <Button
