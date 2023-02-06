@@ -1,0 +1,7 @@
+.navlink {
+  text-decoration: none;
+  color: #8ee4af;
+}
+.navlink:hover {
+  color: rgb(186, 38, 67);
+}

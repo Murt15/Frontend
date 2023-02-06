@@ -2,15 +2,6 @@ import "./HomePage.css";
 const HomePage = () => {
   return (
     <>
-      <div className="our-album">
-        <div className="box">
-          <button>Get Our Latest Album</button>
-        </div>
-        <img
-          src="https://www.citypng.com/public/uploads/preview/round-play-video-player-blue-icon-free-png-11639592297tehyokw8gt.png"
-          alt=""
-        />
-      </div>
       <div>
         <section className="container">
           <h2>Tours</h2>

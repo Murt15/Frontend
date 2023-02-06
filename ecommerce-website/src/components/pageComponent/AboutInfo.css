@@ -1,8 +1,9 @@
 .about-div {
-  width: 90%;
+  width: 80%;
   margin: 20px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 140px;
 }
 .about-div h1 {
   font-family: "Kaushan Script", cursive;
@@ -14,6 +15,7 @@
   border-radius: 50%;
   float: left;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 .about-div p {
   word-wrap: normal;

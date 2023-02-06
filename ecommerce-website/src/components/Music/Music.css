@@ -15,3 +15,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.music-div-card img:hover {
+  transform: scale(1.15);
+  transition: 0.3s ease;
+}

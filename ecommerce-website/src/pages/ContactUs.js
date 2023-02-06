@@ -2,8 +2,10 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import NavigationBar from "../components/Layout/NavigationBar";
+import "./ContactUs.css";
 import Footer from "../components/Layout/Footer";
 import axios from "axios";
+
 const ContactUs = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,16 +41,7 @@ const ContactUs = () => {
   return (
     <>
       <NavigationBar />
-      <div
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          width: "60%",
-          marginTop: "40px",
-          border: "2px solid black",
-          borderRadius: "20px",
-        }}
-      >
+      <div className="form-div">
         <Form style={{ margin: "50px" }} onSubmit={formSubmitHandler}>
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Name</Form.Label>
@@ -81,8 +74,8 @@ const ContactUs = () => {
             Submit
           </Button>
         </Form>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 };
